@@ -25,6 +25,68 @@ BKEAttacker operates through a structured, four-phase workflow—**Sandbox Runti
 
 This end-to-end workflow allows BKEAttacker to generalize across different automotive brands and B-PKES implementations, overcoming limitations of prior approaches and enabling scalable, automated vulnerability discovery and exploitation.
 
+
+# Attack Step
+
+The BKEAttacker operates in two main phases: **Protocol Analysis Phase** and **Attack Execution Phase**. Each phase involves both offline and online analysis to effectively understand and exploit the target vehicle's Passive Keyless Entry and Start (PKES) system.
+
+## 1. Protocol Analysis Phase
+
+This phase focuses on understanding the communication protocol and security mechanisms used by the target vehicle brand and model.
+
+### a. Offline Analysis (Sandbox-Based)
+
+- **Objective**: Extract common protocol logic and defense mechanisms shared among a specific vehicle series.
+- **Steps**:
+  1. Install the vehicle control app into a sandboxed environment.
+  2. Manually simulate multiple PKES operations (typically 5–6 times).
+  3. Collect and analyze the execution data.
+  4. Generate an **Attack Configuration File** that contains potential attack vectors and timing information.
+
+### b. Online Analysis (Real-Time Scanning)
+
+- **Objective**: Capture real-time broadcast services from the victim vehicle to build a runtime protocol profile.
+- **Steps**:
+  1. Use BKEAttacker to scan the wireless signals broadcasted by the target vehicle.
+  2. Analyze the responses to various stimuli.
+  3. Generate a **Protocol Configuration File** based on observed behavior.
+
+## 2. Attack Execution Phase
+
+Once both configuration files are ready, the attacker proceeds with the actual relay or replay attack using two individuals and a coordinated mobile application setup.
+
+### a. Setup
+
+- Import both the **Attack Configuration File** and the **Protocol Configuration File** into the BKEAttacker App.
+- Two attackers are required:
+  - **Attacker A**: Stands near the victim (e.g., carrying the legitimate key fob).
+  - **Attacker B**: Stands near the target vehicle.
+
+### b. Execution
+
+- The two devices running BKEAttacker establish a secure **gRPC connection** to coordinate the attack in real time.
+- The app automates the relay or replay process:
+  - Attacker A captures the key fob signal.
+  - The captured signal is sent over gRPC to Attacker B.
+  - Attacker B forwards the signal to the vehicle to unlock or start it.
+
+This process bypasses the proximity-based security mechanism of the PKES system, enabling unauthorized access.
+
+# Attack scenario
+
+## Active approach
+
+The attacker steals the unlock key by remotely tracking the victim. BKEAttacker poses a certain threat to some vehicle models within a range of 10 meters, and the attack success rate approaches 100% within 5 meters. This physical distance is sufficient for an attacker to find a suitable location to remain hidden while carrying out the attack.
+
+
+![attack1](img/attack1.png)
+
+## Passive trap
+
+The attacker waits in a concealed location for the victim to approach. BKEAttacker maintains an attack success rate close to 100% within a range of 3 meters, even in complex BLE communication environments. Victims have difficulty detecting the disguised BKEAttacker within this range in public settings.
+
+![attack2](img/attack2.png)
+
 # Real-world Attack Evaluation
 
 To evaluate the effectiveness of BKEAttacker in real-world scenarios, we conducted testing across **6 prominent intelligent automotive brands** and over **20 distinct vehicle models** currently on the market. Here are some [demo videos](www.baidu.com "BKEAttacker Demo Video").
