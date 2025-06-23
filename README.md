@@ -36,8 +36,9 @@ This phase focuses on understanding the communication protocol and security mech
 
 ### a. Offline Analysis (Sandbox-Based)
 
-- **Objective**: Extract common protocol logic and defense mechanisms shared among a specific vehicle series.
-- **Steps**:
+Offline Analysis extract common protocol logic and defense mechanisms shared among a specific vehicle series.
+
+**Steps**:
   1. Install the vehicle control app into a sandboxed environment.
   2. Manually simulate multiple PKES operations (typically 5–6 times).
   3. Collect and analyze the execution data.
@@ -45,8 +46,9 @@ This phase focuses on understanding the communication protocol and security mech
 
 ### b. Online Analysis (Real-Time Scanning)
 
-- **Objective**: Capture real-time broadcast services from the victim vehicle to build a runtime protocol profile.
-- **Steps**:
+Online analysis capture real-time broadcast services from the victim vehicle to build a runtime protocol profile.
+
+**Steps**:
   1. Use BKEAttacker to scan the wireless signals broadcasted by the target vehicle.
   2. Analyze the responses to various stimuli.
   3. Generate a **Protocol Configuration File** based on observed behavior.
