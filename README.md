@@ -44,14 +44,17 @@ Offline Analysis extract common protocol logic and defense mechanisms shared amo
   3. Collect and analyze the execution data.
   4. Generate an **Attack Configuration File** that contains potential attack vectors and timing information.
 
+![](./img/offline.png)
+
 ### b. Online Analysis (Real-Time Scanning)
 
 Online analysis capture real-time broadcast services from the victim vehicle to build a runtime protocol profile.
 
 **Steps**:
-  1. Use BKEAttacker to scan the wireless signals broadcasted by the target vehicle.
-  2. Analyze the responses to various stimuli.
-  3. Generate a **Protocol Configuration File** based on observed behavior.
+  1. Use BKEAttacker to scan the victim vehicle's Bluetooth broadcast
+  2. Generate a **Protocol Configuration File** based on observed behavior.
+
+![](./img/online.png)
 
 ## 2. Attack Execution Phase
 
@@ -73,6 +76,9 @@ Once both configuration files are ready, the attacker proceeds with the actual r
   - Attacker B forwards the signal to the vehicle to unlock or start it.
 
 This process bypasses the proximity-based security mechanism of the PKES system, enabling unauthorized access.
+
+
+![](./img/execution.png)
 
 # Attack scenario
 
