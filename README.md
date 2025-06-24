@@ -99,7 +99,4 @@ The attacker waits in a concealed location for the victim to approach. BKEAttack
 
 To evaluate the effectiveness of BKEAttacker in real-world scenarios, we conducted testing across **6 prominent intelligent automotive brands** and over **20 distinct vehicle models** currently on the market. Here are some demo videos.
 
-<video width="600" controls autoplay loop muted>
-  <source src="https://github.com/JSC1375/BKEAttacker/blob/main/demo/demo1_en.mp4"  type="video/mp4">
-  您的浏览器不支持 video 标签。
-</video>
+![](./demo/demo1_en.mp4)
