@@ -44,7 +44,6 @@ Offline Analysis extract common protocol logic and defense mechanisms shared amo
   3. Collect and analyze the execution data.
   4. Generate an **Attack Configuration File** that contains potential attack vectors and timing information.
 
-![](./img/offline.png)
 
 ### b. Online Analysis (Real-Time Scanning)
 
@@ -54,7 +53,8 @@ Online analysis capture real-time broadcast services from the victim vehicle to 
   1. Use BKEAttacker to scan the victim vehicle's Bluetooth broadcast
   2. Generate a **Protocol Configuration File** based on observed behavior.
 
-![](./img/online.png)
+
+![](./img/analysis.png)
 
 ## 2. Attack Execution Phase
 
